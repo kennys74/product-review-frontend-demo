@@ -16,8 +16,7 @@ const PartialReview = ({product}) => {
 
     const handleSubmit = () => {
         setLoading(true);
-        console.log(name);
-        /*const reviewDetails = { 
+        const reviewDetails = { 
             data: {
                 "Description": review,
                 "Rating": starRating,
@@ -31,7 +30,7 @@ const PartialReview = ({product}) => {
         };
         Axios.post('http://173.212.222.70:1337/api/product-reviews', reviewDetails, { headers })
         .then((response) => {
-            console.log(response);
+            setLoading(false);
             setEmail("");
             setName("");
             setReview("");
@@ -45,7 +44,7 @@ const PartialReview = ({product}) => {
         })
         .catch((error) => {
         console.log(error)
-        })*/
+        })
       }
 
     let reviewItemsCount = 0;
