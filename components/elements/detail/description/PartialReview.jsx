@@ -1,19 +1,23 @@
 import React, { Component, useState } from 'react';
-import { Rate } from 'antd';
+import { Form, Input, Rate, Spin } from 'antd';
 import Rating from '~/components/elements/Rating';
 import Axios from 'axios';
 import { Modal } from 'antd';
 
 const PartialReview = ({product}) => {
 
-    const [email, setEmail] = useState('')
-    const [name, setName] = useState('')
-    const [review, setReview] = useState('')
-    const [starRating, setStarRating] = useState(5)
-    let product_id = product.id
-  
-    const submit = () => {
-        const reviewDetails = { 
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [review, setReview] = useState('');
+    const [starRating, setStarRating] = useState(5);
+    const [loading, setLoading] = useState(false);
+    const { TextArea } = Input;
+    let product_id = product.id;
+
+    const handleSubmit = () => {
+        setLoading(true);
+        console.log(name);
+        /*const reviewDetails = { 
             data: {
                 "Description": review,
                 "Rating": starRating,
@@ -41,7 +45,7 @@ const PartialReview = ({product}) => {
         })
         .catch((error) => {
         console.log(error)
-        })
+        })*/
       }
 
     let reviewItemsCount = 0;
@@ -72,57 +76,89 @@ const PartialReview = ({product}) => {
             </div>
         </div>
         <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12 ">
-            <form className="ps-form--review">
-                <h4>Submit Your Review</h4>
-                <p>
-                    Your email address will not be published. All fields are required.
-                </p>
-                <div className="form-group form-group__rating">
-                    <label>Your rating of this product</label>
-                    <Rate defaultValue={0} allowHalf onChange={(value) => {setStarRating(value) }} value={starRating} />
-                </div>
-                <div className="form-group">
-                    <textarea
-                        name="review"
+        <Form 
+            className="ps-form--review"
+            onFinish={handleSubmit}
+            fields={[
+                {
+                    name: ['review'],
+                    value: `${review}`,
+                },
+                {
+                    name: ['name'],
+                    value: `${name}`,
+                },
+                {
+                    name: ['email'],
+                    value: `${email}`,
+                }
+            ]}>
+            <h4>Submit Your Review</h4>
+            <p>Your email address will not be published. All fields are required.</p>
+            <div className="form-group form-group__rating">
+                <label>Your rating of this product</label>
+                <Rate defaultValue={0} allowHalf onChange={(value) => {setStarRating(value) }} value={starRating} />
+            </div>
+            <div className="form-group">
+                <Form.Item
+                    name="review"
+                    rules={[{ required: true, message: 'Please enter your review' }]}>
+                    <TextArea
                         className="form-control"
                         type="text"
                         onChange={e => setReview(e.target.value)}
-                        value={review}
-                        className="form-control"
-                        rows="6"
-                        placeholder="Write your review here"></textarea>
-                </div>
-                <div className="row">
+                        placeholder="Please add your review"
+                    />
+                </Form.Item>
+            </div>
+            <div className="row">
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12  ">
                         <div className="form-group">
-                            <input
-                                name="name"
+                        <Form.Item
+                            name="name"
+                            rules={[{ required: true, message: 'Please enter your full name' }]}>
+                            <Input
                                 className="form-control"
                                 type="text"
-                                onChange={e => setName(e.target.value)}
-                                value={name}
-                                placeholder="Your Name"
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Full Name"
                             />
+                        </Form.Item>
                         </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12  ">
                         <div className="form-group">
-                            <input
-                                className="form-control"
-                                type="email"
-                                placeholder="Your Email"
-                                name="name"
-                                className="form-control"
-                                onChange={e => setEmail(e.target.value)}
-                                value={email}
-                            />
+                            <Form.Item
+                                name="email"
+                                rules={[{ required: true, message: 'Please enter email address' }]}>
+                                <Input
+                                    className="form-control"
+                                    type="email"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Email Address"
+                                />
+                            </Form.Item>
                         </div>
                     </div>
                 </div>
                 <div className="form-group submit">
-                    <button type="button" onClick={submit} className="ps-btn">Submit Review</button>
+                <button
+                        type="submit"
+                        className="ps-btn ps-btn--fullwidth"
+                        >
+                        <span
+                            style={{
+                                display: loading ? 'none' : 'inline-block',
+                            }}>
+                            Submit
+                        </span>
+                        <Spin
+                            spinning={loading}
+                            className="absolute spinner"
+                        />
+                    </button>
                 </div>
-            </form>
+        </Form>
         </div>
     </div>
     );

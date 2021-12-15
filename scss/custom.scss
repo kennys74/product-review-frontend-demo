@@ -15,48 +15,11 @@
     padding: 0 11px;
 }
 
-.simply-blu-modal {
-    max-width: 360px;
-    top: 50px;
-
-    .ant-modal-content {
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        background-color: transparent !important;
-    }
-
-    .ant-modal-body {
-        padding: 0 !important;
-        background-color: transparent !important;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group > label {
-            font-size: 12px !important;
-        }
-    }
-}
 
 .ant-modal-mask {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-.simplyblu-header,
-.simplyblu-body,
-.simplyblu-footer {
-    padding: 14px;
-    background-color: #fafafa;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-}
 
 .amount-right {
     float: right;
@@ -140,11 +103,6 @@
     }
 }
 
-.bannerUp {
-    animation: slideUp 2.5s 1s 1 ease forwards !important;
-    display: none !important;
-}
-
 @keyframes slideDown {
     0%,
     100% {
@@ -181,107 +139,11 @@
     padding:15px !important;
     line-height: 5px !important;
 }
-.ps-shop__content{
-    margin-bottom:50px;
-}
-.price_match{
-    text-align:center;
-    h3{
-        margin-bottom:0;
-        font-size:20px;
-    }
-}
-    .mega-menu {
-        top:-120px !important;
-}
-.menu {
-    li:nth-child(5) a{
-        background:#000;
-        color:#fff;
-    }
-    li:nth-child(5) a:hover{
-        background:#1251c5;
-    }
-}
-.black-friday-heading{
-    text-align:center;
-    margin-top:50px;
-}
 .ant-radio-wrapper{
     margin:0 0 5px 0;
 }
-.payment-heading{
-    background:black;
-    padding:10px;
-    text-align:center;
-    color:white;
-    margin-top:0px;
-}
-
-.snapscan-widget {
-    width: 160px;
-    padding: 30px 20px;
-    background-color: #F2F2F2;
-    box-sizing: content-box;
-    margin:0 auto;
-    text-align: center;
-    border:none;
-    
-    .div, img, a {
-        line-height: 1em;
-    }
-    .snapscan-logo {
-        background: #F2F2F2 url("https://checkingitout.co.za/static/img/payment-method/logo_320.png") no-repeat center center;
-        background-size: 160px auto;
-        width: 160px;
-        height: 33px;
-        margin: 0;
-        padding: 10px 0;
-        box-sizing: content-box;
-    }
-    .snap-code {
-        background-color: #ffffff;
-        padding: 0;
-        box-sizing: content-box;
-        padding:0px; 
-        background-color:white; 
-        border:none; 
-        background:transparent;
-    }
-    .scan-text {
-        background: #F2F2F2 url("https://checkingitout.co.za/static/img/payment-method/scan_text_320.png") no-repeat center center;
-        background-size: 160px auto;
-        width: 160px;
-        height: 35px;
-        box-sizing: content-box;
-    }
-    a {
-        text-decoration:none;
-        border:none;
-        display: block;
-        box-sizing: content-box;
-        margin: 0;
-        padding: 0;
-    }
-    a.faq-link {
-        margin-top: 10px;
-        box-sizing: content-box;
-    }
-    img {
-        border:none;
-        margin: 0;
-        padding: 0;
-        background:transparent;
-        box-sizing: content-box;
-        box-shadow: none;
-        display:block;
-    }
-    @media screen and (max-device-width: 667px){
-        .snap-code  {
-            display: none;
-        }
-        .scan-text {
-            display: none;
-        }
-    }
+textarea.form-control{
+    height: auto !important;
+    padding: 2rem !important;
+    resize: none !important;
 }
