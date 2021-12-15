@@ -53,7 +53,7 @@ const PartialReview = ({product}) => {
         const items = product.attributes.product_reviews.data.map((item) => (
             reviewAverageScore += item.attributes.Rating
         ));
-        reviewAverageScore = reviewAverageScore / reviewItemsCount;
+        reviewAverageScore = (reviewAverageScore / reviewItemsCount).toFixed(2);
     }else{
         reviewAverageScore = 0;
         
