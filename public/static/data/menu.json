@@ -1,0 +1,33 @@
+{
+	"menuPrimary": {
+        "menu_1": [
+            {
+                "id": "MainMenu1",
+                "text": "Home",
+                "url": "/"
+            },
+            {
+                "id": "MainMenu2",
+                "text": "Shop",
+                "url": "#"
+            },
+            {
+                "id": "MainMenu3",
+                "text": "Our Story",
+                "url": "#"
+            },
+            {
+                "id": "MainMenu4",
+                "text": "Contact Us",
+                "url": "#"
+            }
+        ]
+    },
+    "product_categories": [
+        {
+            "icon": "/static/img/icons/feather-alt-solid.svg",
+            "text": "Air Fryers",
+            "url": "/category/air-fryers-1"
+        }
+    ]
+}
