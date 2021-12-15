@@ -6,15 +6,15 @@ import PartialReview from '~/components/elements/detail/description/PartialRevie
 const { TabPane } = Tabs;
 
 const DefaultDescription = ({product}) => {
-    
+
     return (
         <div className="ps-product__content ps-tab-root">
             <Tabs defaultActiveKey="1">
-                <TabPane tab="Description" key="1">
-				    <ModuleProductDetailDescription product={product} />
-                </TabPane>
-                <TabPane tab="Reviews" key="4">
+            <TabPane tab="Reviews" key="1">
                     <PartialReview product={product} />
+                </TabPane>
+                <TabPane tab="Description" key="4">
+				    <ModuleProductDetailDescription product={product} />
                 </TabPane>
             </Tabs>
         </div>
